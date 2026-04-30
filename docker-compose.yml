@@ -1,0 +1,31 @@
+version: '3.8'
+
+services:
+  # 1. 백엔드 서비스
+  # docker build -t windboyk641/men-backend:v1 ./backend
+  backend:
+    image: windboyk641/men-backend:v1  # 빌드할/가져올 이미지 이름
+    build: ./backend
+    container_name: mm-backend
+    ports:
+      - "9000:9000"
+    volumes:
+      - ./database:/app/database      # SQLite 데이터 유실 방지용 볼륨
+    env_file:
+      - ./backend/.env
+    environment:
+      - DATABASE_URL=sqlite:////app/database/menManager.db
+    restart: always
+
+  # 2. 프론트엔드 서비스
+  # docker build -t windboyk641/men-frontend:v1 ./frontend
+  frontend:
+    image: windboyk641/men-frontend:v1 # 빌드할/가져올 이미지 이름
+    build: ./frontend
+    container_name: mm-frontend
+    ports:
+      - "3000:80"
+    depends_on:
+      - backend
+    restart: always
+
