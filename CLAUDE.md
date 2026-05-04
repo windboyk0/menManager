@@ -12,6 +12,7 @@ description: 멀티 에이전트 기반 프로젝트 인력 관리 시스템 Orc
 - Database: SQLite
 - MCP Server: FastAPI 기반 MCP 서버 (LLM 연동)
 
+<!-- #Harness Engineering Start : 에이전트 실행 순서 -->
 ## 에이전트 실행 순서
 ```
 Phase 0  agents/architect.md
@@ -20,7 +21,9 @@ Phase 2  agents/backEnd.md · agents/frontEnd.md        (병렬)
 Phase 3  agents/mcp.md · agents/frontEnd.md            (병렬)
 Phase 4  agents/qa.md                                  (단독)
 ```
+<!-- #Harness Engineering End : 에이전트 실행 순서 -->
 
+<!-- #Harness Engineering Start : 전역 규칙 -->
 ## 전역 규칙
 - 날짜: `YYYY-MM-DD` UTC
 - API 접두사: `/api/v1/`
@@ -29,8 +32,11 @@ Phase 4  agents/qa.md                                  (단독)
 - Python 타입 힌트 필수 / TypeScript `any` 금지
 - 인증: Frontend → JWT / 외부 연동·MCP → API Key
 - Backend는 REST API + MCP 서버 두 가지 인터페이스로 노출
+<!-- #Harness Engineering End : 전역 규칙 -->
 
+<!-- #Harness Engineering Start : 메모리 관리 -->
 ## 메모리
 - 작업 상태는 `.claude/memory.md` 에 기록
 - Phase 완료 시마다 업데이트
 - 다음 에이전트 호출 전 반드시 참고
+<!-- #Harness Engineering End : 메모리 관리 -->

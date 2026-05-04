@@ -6,14 +6,20 @@ description: 통합 테스트, 환경 설정, README 담당. 전체 에이전트
 
 # agents/qa.md — QA Agent
 
+<!-- #Harness Engineering Start : 역할 정의 -->
 ## 역할
 통합 테스트 · 환경 정비 · 문서화 전담.
+<!-- #Harness Engineering End : 역할 정의 -->
 
+<!-- #Harness Engineering Start : 선행 조건 -->
 ## 선행 조건
 전체 에이전트 완료 후 시작
+<!-- #Harness Engineering End : 선행 조건 -->
 
+<!-- #Harness Engineering Start : 범위 제한 -->
 ## 범위
 `.env.example` · `README.md` · `backend/tests/test_integration.py`
+<!-- #Harness Engineering End : 범위 제한 -->
 
 ## 테스트 시나리오
 
@@ -31,6 +37,7 @@ description: 통합 테스트, 환경 설정, README 담당. 전체 에이전트
 - G: MCP tool 7개 정상 호출 확인
 - H: 잘못된 API Key → 401 반환 확인
 
+<!-- #Harness Engineering Start : 환경 변수 필수 항목 -->
 ## 환경 변수 필수 항목
 > 2026-04-22 · By Kim Jeong-woong
 
@@ -38,8 +45,11 @@ description: 통합 테스트, 환경 설정, README 담당. 전체 에이전트
 - `ADMIN_PASSWORD` — 초기 admin 비밀번호 (소스 하드코딩 금지)
 - `DATABASE_URL` — `.env`에 넣지 말 것. Docker 전용 경로이므로 `docker-compose.yml`의 `environment` 섹션에서 주입
 - `JWT_SECRET` — 운영 환경에서 반드시 변경 > python -c "import secrets; print(secrets.token_hex(32))"
+<!-- #Harness Engineering End : 환경 변수 필수 항목 -->
 
+<!-- #Harness Engineering Start : 완료 기준 -->
 ## 완료 기준
 - [ ] 시나리오 A·B·C·D·E·F·G·H 전체 통과
 - [ ] `.env.example` 최신화 완료
 - [ ] README 기준 클린 환경 실행 가능
+<!-- #Harness Engineering End : 완료 기준 -->

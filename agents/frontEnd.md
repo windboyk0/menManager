@@ -6,16 +6,22 @@ description: React + TypeScript UI 담당. Phase 1 구조 → Phase 3 API 연동
 
 # agents/frontEnd.md — Frontend Agent
 
+<!-- #Harness Engineering Start : 역할 정의 -->
 ## 역할
 React + TypeScript UI 전담.
+<!-- #Harness Engineering End : 역할 정의 -->
 
+<!-- #Harness Engineering Start : 선행 조건 -->
 ## 선행 조건
 - Phase 1: 독립 실행 가능
 - Phase 3: `agents/backEnd.md` 완료 후 API 연동 시작
 - `docs/architecture/api_spec.md` 참고해서 구현
+<!-- #Harness Engineering End : 선행 조건 -->
 
+<!-- #Harness Engineering Start : 범위 제한 -->
 ## 범위
 `frontend/src/` (types · pages · components · hooks · api)
+<!-- #Harness Engineering End : 범위 제한 -->
 
 ## 페이지
 
@@ -49,6 +55,7 @@ React + TypeScript UI 전담.
 ### MCP API Key
 - `/mypage/apikey` — API Key 조회 · 발급 · 삭제 · 사용이력 조회
 
+<!-- #Harness Engineering Start : 구현 규칙 -->
 ## 디자인
 - 스타일: 미니멀 / 클린 (화이트 베이스, 여백 넓게)
 - 레이아웃: 상단 네비게이션
@@ -103,7 +110,10 @@ React + TypeScript UI 전담.
 - `/api` 요청은 `http://backend:9000` 으로 프록시.
 - `proxy_redirect http://backend:9000/ /` 설정 필수.
   - **이유**: FastAPI 307 리다이렉트 응답의 `Location` 헤더가 `http://backend:9000/...` (Docker 내부 호스트명)으로 오는데, 브라우저는 이 주소에 접근 불가. 상대경로(`/...`)로 변환해야 브라우저가 정상적으로 따라갈 수 있음.
+<!-- #Harness Engineering End : 구현 규칙 -->
 
+<!-- #Harness Engineering Start : 완료 기준 -->
 ## 완료 기준
 - [ ] Phase 1: 타입 정의 · 라우팅 · 더미 렌더링 · 빌드 에러 0
 - [ ] Phase 3: 전체 API 연동 · 로딩·에러 처리 · 빌드 에러 0
+<!-- #Harness Engineering End : 완료 기준 -->
